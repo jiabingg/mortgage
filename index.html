@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mortgage Calculator</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Mortgage Calculator</h1>
+
+    <form id="mortgage-form" class="card">
+      <div class="grid">
+        <label>
+          Home Price ($)
+          <input type="number" step="0.01" min="0" name="price" required value="500000" />
+        </label>
+        <label>
+          Down Payment ($)
+          <input type="number" step="0.01" min="0" name="downPayment" value="100000" />
+        </label>
+        <label>
+          Interest Rate (% APR)
+          <input type="number" step="0.001" min="0" name="annualRate" required value="6.5" />
+        </label>
+        <label>
+          Term (years)
+          <input type="number" step="1" min="1" name="years" required value="30" />
+        </label>
+        <label>
+          Extra Monthly Payment ($)
+          <input type="number" step="0.01" min="0" name="extraMonthly" value="0" />
+        </label>
+      </div>
+
+      <button type="submit">Calculate</button>
+      <p id="error" class="error" hidden></p>
+    </form>
+
+    <section id="summary" class="card" hidden>
+      <h2>Summary</h2>
+      <div class="summary-grid">
+        <div><span>Loan Amount</span><strong id="principal">$—</strong></div>
+        <div><span>Base Monthly Payment</span><strong id="base">$—</strong></div>
+        <div><span>Monthly w/ Extra</span><strong id="withExtra">$—</strong></div>
+        <div><span>Months to Payoff</span><strong id="months">—</strong></div>
+        <div><span>Total Interest</span><strong id="interest">$—</strong></div>
+        <div><span>Total Paid</span><strong id="total">$—</strong></div>
+      </div>
+    </section>
+
+    <section id="schedule-section" class="card" hidden>
+      <div class="header-row">
+        <h2>Amortization Schedule</h2>
+        <div class="controls">
+          <label>
+            Show:
+            <select id="rows-select">
+              <option value="12">12 months</option>
+              <option value="60">60 months</option>
+              <option value="120">120 months</option>
+              <option value="9999">All</option>
+            </select>
+          </label>
+          <button id="download-csv" type="button">Download CSV</button>
+        </div>
+      </div>
+      <table id="schedule-table">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Payment</th>
+            <th>Principal</th>
+            <th>Interest</th>
+            <th>Balance</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <footer>
+      <small>Made with Node.js + Express. All calculations are performed on the server.</small>
+    </footer>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
