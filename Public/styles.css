@@ -1,0 +1,135 @@
+:root {
+  --bg: #0f172a;
+  --card: #111827;
+  --fg: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #38bdf8;
+  --ring: rgba(56, 189, 248, 0.4);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+  color: var(--fg);
+  background: linear-gradient(180deg, #0b1220, #0f172a);
+  min-height: 100%;
+}
+
+.container {
+  max-width: 980px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1, h2 { margin: 0 0 16px; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.2rem; color: var(--muted); }
+
+.card {
+  background: var(--card);
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  margin-bottom: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  background: #0b1220;
+  color: var(--fg);
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+button {
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  background: var(--accent);
+  color: #082231;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover { filter: brightness(1.05); }
+
+.error {
+  color: #fecaca;
+  margin: 8px 0 0;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.summary-grid > div {
+  background: #0b1220;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  padding: 12px;
+  display: grid;
+  gap: 4px;
+}
+
+.summary-grid span { color: var(--muted); font-size: 0.85rem; }
+.summary-grid strong { font-size: 1.05rem; }
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+thead th {
+  text-align: left;
+  background: #0b1220;
+  color: var(--muted);
+  padding: 10px;
+  border-bottom: 1px solid #1f2937;
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #1f2937;
+}
