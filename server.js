@@ -15,11 +15,6 @@ app.use(express.json());
 const frontendDir = path.join(process.cwd(), "Public");
 app.use(express.static(frontendDir));
 
-// Client-side routing fallback
-app.get("*", (req, res) => {
-  res.sendFile(path.join(frontendDir, "index.html"));
-});
-
 // --- Core calculation logic (backend) ---
 function calcMortgage({ price, downPayment, annualRate, years, extraMonthly = 0 }) {
   // Validate
@@ -123,6 +118,11 @@ app.post("/api/calc", (req, res, next) => {
 
 // Simple health check
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
+
+// Client-side routing fallback
+app.get("*", (req, res) => {
+  res.sendFile(path.join(frontendDir, "index.html"));
+});
 
 // Error handler
 app.use((err, _req, res, _next) => {
