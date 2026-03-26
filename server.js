@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import path from "path";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,7 +10,15 @@ const PORT = process.env.PORT || 3000;
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
-app.use(express.static("public"));
+
+// Serve frontend from the actual folder name (case-sensitive on Linux in Vercel)
+const frontendDir = path.join(process.cwd(), "Public");
+app.use(express.static(frontendDir));
+
+// Client-side routing fallback
+app.get("*", (req, res) => {
+  res.sendFile(path.join(frontendDir, "index.html"));
+});
 
 // --- Core calculation logic (backend) ---
 function calcMortgage({ price, downPayment, annualRate, years, extraMonthly = 0 }) {

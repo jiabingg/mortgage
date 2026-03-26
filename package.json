@@ -5,8 +5,8 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js"
+    "start": "C:\\Users\\jiab\\Program\\nodejs\\node server.js",
+    "dev": "C:\\Users\\jiab\\Program\\nodejs\\node --watch server.js"
   },
   "engines": {
     "node": ">=18"
