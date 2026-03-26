@@ -134,7 +134,9 @@ app.use((err, _req, res, _next) => {
   });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Mortgage app listening on http://localhost:${PORT}`);
-});
+// // Start server
+// app.listen(PORT, () => {
+//   console.log(`Mortgage app listening on http://localhost:${PORT}`);
+// });
+
+export default app;
