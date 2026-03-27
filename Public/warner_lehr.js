@@ -16,9 +16,8 @@ document.getElementById('volumetric-form').addEventListener('submit', function(e
     // Math Logic
     const totalDays = ti * 365.25;
     const totalInjected = wi + (qi * totalDays);
-    const bbl_to_cf = 5.61458;
 
-    const denominator = Math.PI * h * f * (1 - sw);
+    const denominator = Math.PI * h * f * sw;
     
     if (denominator <= 0) {
         document.getElementById('error').textContent = "Invalid inputs: Denominator is zero or less.";
@@ -26,7 +25,7 @@ document.getElementById('volumetric-form').addEventListener('submit', function(e
         return;
     }
 
-    const r = Math.sqrt((totalInjected * bbl_to_cf) / denominator);
+    const r = Math.sqrt((totalInjected * 5.615) / denominator);
     const rd = r + (2.3 * Math.sqrt(d * r));
 
     // Display
