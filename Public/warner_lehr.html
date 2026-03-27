@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Warner Lehr - Volumetric Calculator</title>
+  <title>ZEI Calculation - Warner and Lehr</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
@@ -13,40 +13,77 @@
     </nav>
 
   <main class="container">
-    <h1>Distance from Injector (Radial Flow)</h1>
+    <h1>ZEI Calculation - Warner and Lehr</h1>
     <p class="description">Volumetric method to estimate fluid front and USDW proximity.</p>
 
     <form id="volumetric-form" class="card">
-      <div class="grid">
-        <label>
-          Cumulative Water Injected (W<sub>i</sub>) [Bbl]
-          <input type="number" step="1" name="wi" required value="9708764" />
-        </label>
-        <label>
-          Injection Rate (q<sub>i</sub>) [bbl/d]
-          <input type="number" step="1" name="qi" required value="500" />
-        </label>
-        <label>
-          Remaining Project Life (t<sub>i</sub>) [yr]
-          <input type="number" step="0.1" name="ti" required value="20" />
-        </label>
-        <label>
-          Reservoir Thickness (h) [ft]
-          <input type="number" step="0.1" name="h" required value="126" />
-        </label>
-        <label>
-          Porosity (φ) [v/v]
-          <input type="number" step="0.001" name="f" required value="0.2" />
-        </label>
-        <label>
-          Water Saturation (S<sub>w</sub>) [v/v]
-          <input type="number" step="0.001" name="sw" required value="0.758" />
-        </label>
-        <label>
-          Dispersion (D) [ft]
-          <input type="number" step="0.1" name="d" required value="3" />
-        </label>
-      </div>
+      <table class="input-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Input Data</th>
+            <th>Values</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="symbol">W<sub>i</sub></td>
+            <td class="description">Cumulative Water Injected</td>
+            <td class="input-cell">
+              <input type="number" step="1" name="wi" required value="9708764" />
+              <span class="unit">Bbl</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="symbol">q<sub>i</sub></td>
+            <td class="description">Injection Rate</td>
+            <td class="input-cell">
+              <input type="number" step="1" name="qi" required value="500" />
+              <span class="unit">bbl/d</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="symbol">t<sub>i</sub></td>
+            <td class="description">Remaining Project Life</td>
+            <td class="input-cell">
+              <input type="number" step="0.1" name="ti" required value="20" />
+              <span class="unit">yr</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="symbol">h</td>
+            <td class="description">Reservoir Thickness</td>
+            <td class="input-cell">
+              <input type="number" step="0.1" name="h" required value="126" />
+              <span class="unit">ft</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="symbol">φ</td>
+            <td class="description">Porosity</td>
+            <td class="input-cell">
+              <input type="number" step="0.001" name="f" required value="0.2" />
+              <span class="unit">v/v</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="symbol">S<sub>w</sub></td>
+            <td class="description">Water Saturation</td>
+            <td class="input-cell">
+              <input type="number" step="0.001" name="sw" required value="0.758" />
+              <span class="unit">v/v</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="symbol">D</td>
+            <td class="description">Dispersion</td>
+            <td class="input-cell">
+              <input type="number" step="0.1" name="d" required value="3" />
+              <span class="unit">ft</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
       <button type="submit">Calculate Radius</button>
       <p id="error" class="error" hidden></p>
@@ -67,6 +104,11 @@
       <div class="formula-note" style="margin-top: 1rem; font-size: 0.8rem; color: #666;">
         <p>Note: r' calculation is derived from Warner and Lehr (1972) and Bear (1972).</p>
       </div>
+    </section>
+
+    <section class="card reference-section">
+      <h2>Reference - Equations and Terms</h2>
+      <img src="./resources/warner_lehr_equation.png" alt="Warner and Lehr Equations and Reference Table" class="reference-image" />
     </section>
   </main>
 
