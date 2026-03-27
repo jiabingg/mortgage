@@ -7,6 +7,25 @@
   --ring: rgba(56, 189, 248, 0.4);
 }
 
+.nav {
+  background: var(--card);
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
 * { box-sizing: border-box; }
 
 html, body {

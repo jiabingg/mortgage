@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Warner Lehr - Volumetric Calculator</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a href="./index.html">Mortgage Calculator</a>
+    <a href="./warner_lehr.html" class="active">Warner Lehr</a>
+    </nav>
+
+  <main class="container">
+    <h1>Distance from Injector (Radial Flow)</h1>
+    <p class="description">Volumetric method to estimate fluid front and USDW proximity.</p>
+
+    <form id="volumetric-form" class="card">
+      <div class="grid">
+        <label>
+          Cumulative Water Injected (W<sub>i</sub>) [Bbl]
+          <input type="number" step="1" name="wi" required value="9708764" />
+        </label>
+        <label>
+          Injection Rate (q<sub>i</sub>) [bbl/d]
+          <input type="number" step="1" name="qi" required value="500" />
+        </label>
+        <label>
+          Remaining Project Life (t<sub>i</sub>) [yr]
+          <input type="number" step="0.1" name="ti" required value="20" />
+        </label>
+        <label>
+          Reservoir Thickness (h) [ft]
+          <input type="number" step="0.1" name="h" required value="126" />
+        </label>
+        <label>
+          Porosity (φ) [v/v]
+          <input type="number" step="0.001" name="f" required value="0.2" />
+        </label>
+        <label>
+          Water Saturation (S<sub>w</sub>) [v/v]
+          <input type="number" step="0.001" name="sw" required value="0.758" />
+        </label>
+        <label>
+          Dispersion (D) [ft]
+          <input type="number" step="0.1" name="d" required value="3" />
+        </label>
+      </div>
+
+      <button type="submit">Calculate Radius</button>
+      <p id="error" class="error" hidden></p>
+    </form>
+
+    <section id="summary" class="card">
+      <h2>Calculation Results</h2>
+      <div class="summary-grid">
+        <div>
+          <span>Calculated Radius (r)</span>
+          <strong id="res-r">—</strong> <small>ft</small>
+        </div>
+        <div>
+          <span>Radius w/ Dispersion (r')</span>
+          <strong id="res-rd">—</strong> <small>ft</small>
+        </div>
+      </div>
+      <div class="formula-note" style="margin-top: 1rem; font-size: 0.8rem; color: #666;">
+        <p>Note: r' calculation is derived from Warner and Lehr (1972) and Bear (1972).</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="./warner_lehr.js"></script>
+</body>
+</html>
